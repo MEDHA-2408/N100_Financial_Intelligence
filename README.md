@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 📊 N100 Financial Intelligence Platform
 
 ## Overview
@@ -311,3 +312,7 @@ Aspiring Data Analyst | Financial Analytics Enthusiast
 * Sector Analytics
 * Investment Screeners
 * Peer Comparison
+=======
+# N100_Financial_Intelligence
+Financial analytics platform for Nifty 100 companies featuring health scoring, sector analytics, peer comparison, investment screeners, and interactive Streamlit dashboards.
+>>>>>>> 2c62c4065202354fd267737975f40638de9941dc
