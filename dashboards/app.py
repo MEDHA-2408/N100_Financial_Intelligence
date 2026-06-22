@@ -19,7 +19,7 @@ st.title("📊 N100 Financial Intelligence Platform")
 health_scores = pd.read_csv(
     "data/processed/health_scores_v2.csv"
 )
-
+st.write(health_scores.columns.tolist())
 # ==========================================================
 # SIDEBAR
 # ==========================================================
@@ -29,6 +29,7 @@ page = st.sidebar.radio(
     [
         "Home",
         "Company Search",
+        "Trend Analytics",
         "Sector Analytics",
         "Investment Screeners",
         "Peer Comparison"
@@ -120,6 +121,66 @@ elif page == "Company Search":
         ["health_score_v2"]
     )
 
+    # PDF Report Button
+
+    if st.button("Generate PDF Report"):
+
+        from reportlab.lib.pagesizes import letter
+        from reportlab.pdfgen import canvas
+
+        latest = company_data.iloc[-1]
+
+        pdf_file = f"{selected_company}_report.pdf"
+
+        c = canvas.Canvas(
+            pdf_file,
+            pagesize=letter
+        )
+
+        c.setFont("Helvetica-Bold", 18)
+
+        c.drawString(
+            50,
+            750,
+            f"{selected_company} Financial Report"
+        )
+
+        c.setFont("Helvetica", 12)
+
+        c.drawString(
+            50,
+            700,
+            f"Health Score: {latest['health_score_v2']:.2f}"
+        )
+
+        c.drawString(
+            50,
+            675,
+            f"Health Band: {latest['health_band']}"
+        )
+
+        c.drawString(
+            50,
+            650,
+            f"ROE: {latest['return_on_equity_pct']:.2f}"
+        )
+
+        c.drawString(
+            50,
+            625,
+            f"Net Profit Margin: {latest['net_profit_margin_pct']:.2f}"
+        )
+
+        c.save()
+
+        with open(pdf_file, "rb") as pdf:
+
+            st.download_button(
+                label="Download PDF Report",
+                data=pdf,
+                file_name=pdf_file,
+                mime="application/pdf"
+            )
 # ==========================================================
 # SECTOR ANALYTICS
 # ==========================================================
@@ -170,7 +231,6 @@ elif page == "Sector Analytics":
             ]
         ]
     )
-
 # ==========================================================
 # INVESTMENT SCREENERS
 # ==========================================================
@@ -206,17 +266,48 @@ elif page == "Investment Screeners":
     )
 
     if screener == "Quality Growth":
+
         st.dataframe(quality_growth)
 
+        st.download_button(
+            "Download Quality Growth CSV",
+            quality_growth.to_csv(index=False),
+            "quality_growth.csv",
+            "text/csv"
+        )
+
     elif screener == "Debt Free":
+
         st.dataframe(debt_free)
 
+        st.download_button(
+            "Download Debt Free CSV",
+            debt_free.to_csv(index=False),
+            "debt_free.csv",
+            "text/csv"
+        )
+
     elif screener == "High ROE":
+
         st.dataframe(high_roe)
 
+        st.download_button(
+            "Download High ROE CSV",
+            high_roe.to_csv(index=False),
+            "high_roe.csv",
+            "text/csv"
+        )
+
     elif screener == "Turnaround":
+
         st.dataframe(turnaround)
 
+        st.download_button(
+            "Download Turnaround CSV",
+            turnaround.to_csv(index=False),
+            "turnaround.csv",
+            "text/csv"
+        )
 # ==========================================================
 # PEER COMPARISON
 # ==========================================================
