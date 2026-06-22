@@ -295,8 +295,11 @@ Planned improvements include:
 # Author
 
 **Medhaswini**
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 4d76daafbce10121545b9fd9163ed0cbe3e4c1f7
 ---
 
 # Dashboard Preview
@@ -307,4 +310,11 @@ Planned improvements include:
 * Company Search
 * Sector Analytics
 * Investment Screeners
+<<<<<<< HEAD
 * Peer Comparison
+=======
+* Peer Comparison
+=======
+# N100_Financial_Intelligence
+Financial analytics platform for Nifty 100 companies featuring health scoring, sector analytics, peer comparison, investment screeners, and interactive Streamlit dashboards.
+>>>>>>> 4d76daafbce10121545b9fd9163ed0cbe3e4c1f7
