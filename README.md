@@ -299,8 +299,6 @@ Planned improvements include:
 
 # Dashboard Preview
 
-(Add dashboard screenshots here)
-
 * Home Page
 * Company Search
 * Sector Analytics
