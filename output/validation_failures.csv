@@ -1,0 +1,7 @@
+rule_id,severity,description,status
+DQ-01,CRITICAL,Primary Key Check,PASS
+DQ-02,CRITICAL,Company-Year Uniqueness,PASS
+DQ-03,CRITICAL,Foreign Key Integrity,PASS
+DQ-04,WARNING,Balance Sheet Validation,PASS
+DQ-05,WARNING,Operating Margin Validation,PASS
+DQ-06,WARNING,Positive Sales Check,PASS

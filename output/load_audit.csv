@@ -1,0 +1,11 @@
+table_name,row_count,status
+companies,92,Loaded
+financial_ratios,1184,Loaded
+profitandloss,1276,Loaded
+cashflow,1187,Loaded
+stock_prices,5520,Loaded
+peer_groups,92,Loaded
+sectors,11,Loaded
+documents,92,Loaded
+analysis,92,Loaded
+market_cap,92,Loaded
